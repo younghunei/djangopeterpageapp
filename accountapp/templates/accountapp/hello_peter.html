@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+
+    <div style="border-radius: 1rem; margin: 2rem; text-align: center">
+        <h1 style="font-family: 'Nanum Pen Script', cursive;">
+            Peter Site List
+        </h1>
+
+        <form action = "/accounts/hello_peter/" method="post">
+            {% csrf_token %}
+            <div>
+                <input type="text" name = "hello_peter_input">
+            </div>
+            <div>
+                <input type="submit" class ="btn btn-primary" value = "POST">
+            </div>
+
+        </form>
+
+        {% if test_list %}
+            {% for test in test_list %}
+            <h4>
+                {{ test.text }}
+            </h4>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+
+{% endblock %}
