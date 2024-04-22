@@ -6,7 +6,7 @@ from articleapp.views import ArticleCreateView, ArticleDetailView, ArticleUpdate
 app_name = 'articleapp'
 
 urlpatterns = [
-    path('list/', ArticleListView.as_view(), name = 'list'),   ## TemmplateView -> 장고에서 기본 제공해주는 뷰
+    path('list/', ArticleListView.as_view(), name = 'list'),
 
     path('create/', ArticleCreateView.as_view(), name = 'create'),
     path('detail/<int:pk>', ArticleDetailView.as_view(),name = 'detail'),
