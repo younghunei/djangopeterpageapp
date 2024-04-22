@@ -11,6 +11,9 @@
         <a href="{% url 'projectapp:list' %}" class="peterpage_header_nav">
             <span>Projects</span>
         </a>
+        <a href="{% url 'subscribeapp:list' %}" class="peterpage_header_nav">
+            <span>Subscription</span>
+        </a>
 
         {% if not user.is_authenticated %}  <!--  user가 로그인이 되어있지 않다면 로그인을 보여주고 로그인이 되어있다면 로그아웃을 보여줄것이다. -->
         <a href="{% url 'accountapp:login' %}?next={{ request.path }}" class="peterpage_header_nav">

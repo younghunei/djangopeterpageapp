@@ -10,30 +10,12 @@ from django.views.generic.list import MultipleObjectMixin
 
 from accountapp.decorators import account_ownership_required
 from accountapp.forms import AccountUpdateForm
-from accountapp.models import Test
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from articleapp.models import Article
 
 # Create your views here.
 has_ownership = [account_ownership_required, login_required]
-
-
-@login_required
-def hello_peter(request):
-
-    if request.method == "POST":
-
-        temp = request.POST.get('hello_peter_input')
-
-        new_test = Test()
-        new_test.text = temp
-        new_test.save()
-
-        return HttpResponseRedirect(reverse('accountapp:hello_peter'))
-    else:
-        test_list = Test.objects.all()
-        return render(request, 'accountapp/hello_peter.html', context={'test_list': test_list})
 
 
 class AccountCreateView(CreateView):
